@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const FormDataModel = require("./FormData");
+const FormDataModel = require("./Formdata");
 const CategoryModel = require("./Category");
 const IndustryModel = require("./Industry"); // Import the Industry model
 
