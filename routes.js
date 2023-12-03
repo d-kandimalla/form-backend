@@ -12,5 +12,6 @@ router.get(
   "/sectors/:parentId/children",
   sectorsController.getChildrenByParentId
 );
+router.get("/getcounts", formDataController.getCounts);
 
 module.exports = router;
