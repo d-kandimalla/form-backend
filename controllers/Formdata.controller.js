@@ -1,6 +1,6 @@
 const db = require("../models/index");
 
-exports.createUser = async (req, res) => {
+exports.createForm = async (req, res) => {
   try {
     const newUser = await db.FormData.create(req.body);
     res.status(201).send(newUser);
@@ -9,7 +9,7 @@ exports.createUser = async (req, res) => {
   }
 };
 
-exports.getUser = async (req, res) => {
+exports.getForm = async (req, res) => {
   try {
     const user = await db.FormData.findByPk(req.params.id);
     res.status(200).send(user);
@@ -18,7 +18,7 @@ exports.getUser = async (req, res) => {
   }
 };
 
-exports.getAllUsers = async (req, res) => {
+exports.getAllForms = async (req, res) => {
   try {
     const users = await db.FormData.findAll();
     res.status(200).send(users);
@@ -27,7 +27,7 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-exports.updateUser = async (req, res) => {
+exports.updateForm = async (req, res) => {
   try {
     const { id } = req.params; // Assuming the user ID is passed as a URL parameter
     const [updated] = await db.FormData.update(req.body, {

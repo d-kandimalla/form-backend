@@ -5,8 +5,7 @@ const routes = require("./routes");
 
 // Model imports
 const FormDataModel = require("./models/Formdata");
-const CategoryModel = require("./models/Category");
-const IndustryModel = require("./models/Industry");
+const CategoryModel = require("./models/Sectors");
 
 const app = express();
 app.use(cors()); // Enable CORS for all routes and origins
@@ -20,7 +19,6 @@ const sequelize = new Sequelize({
 // Initialize models
 const Formdata = FormDataModel(sequelize, Sequelize);
 const Category = CategoryModel(sequelize, Sequelize);
-const Industry = IndustryModel(sequelize, Sequelize);
 
 // Sync Sequelize with the database
 sequelize.sync();
@@ -29,7 +27,6 @@ sequelize.sync();
 app.set("models", {
   Formdata: Formdata,
   Category: Category,
-  Industry: Industry,
 });
 
 app.get("/healthcheck", function (req, res) {

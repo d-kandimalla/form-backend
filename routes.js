@@ -1,19 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const formDataController = require("./controllers/Formdata.controller");
-const categoryController = require("./controllers/Category.controller");
-const industryController = require("./controllers/Industry.controller");
+const sectorsController = require("./controllers/Sectors.controller");
 
-router.post("/create", formDataController.createUser);
-router.get("/list/:id", formDataController.getUser);
-router.get("/list", formDataController.getAllUsers);
-router.put("/list/:id", formDataController.updateUser);
-router.get("/categories", categoryController.getAllCategories);
+router.post("/create", formDataController.createForm);
+router.get("/list/:id", formDataController.getForm);
+router.get("/list", formDataController.getAllForms);
+router.put("/list/:id", formDataController.updateForm);
+router.get("/sectors", sectorsController.getAllSectors);
 router.get(
-  "/categories/:parentId/children",
-  categoryController.getChildrenByParentId
+  "/sectors/:parentId/children",
+  sectorsController.getChildrenByParentId
 );
-router.get("/industries", industryController.getAllIndustries); // Route to get all industries
-router.get("/industries/:id", industryController.getIndustryById);
 
 module.exports = router;

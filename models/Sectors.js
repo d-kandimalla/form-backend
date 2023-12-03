@@ -1,8 +1,8 @@
 // models/Category.js
 const { Sequelize, DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
-  const Category = sequelize.define(
-    "Categories",
+  const Sectors = sequelize.define(
+    "Sectors",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: true,
         references: {
-          model: "Categories", // Table name
+          model: "Sectors", // Table name
           key: "id",
         },
       },
@@ -23,17 +23,17 @@ module.exports = (sequelize) => {
       },
     },
     {
-      tableName: "Categories",
+      tableName: "Sectors",
     }
   );
 
-  Category.associate = function (models) {
-    Category.hasMany(models.Category, {
+  Sectors.associate = function (models) {
+    Sectors.hasMany(models.Sectors, {
       as: "children",
       foreignKey: "parentId",
       useJunctionTable: false,
     });
   };
 
-  return Category;
+  return Sectors;
 };
