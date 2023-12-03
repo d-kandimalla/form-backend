@@ -32,6 +32,10 @@ app.set("models", {
   Industry: Industry,
 });
 
+app.get("/healthcheck", function (req, res) {
+  res.send("OK");
+});
+
 // Middleware to parse JSON bodies
 app.use(express.json());
 
